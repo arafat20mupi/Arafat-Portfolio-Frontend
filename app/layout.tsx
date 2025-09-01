@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Arafat Islam - Full Stack Developer",
+  
   description:
     "Full-stack developer specializing in React, Next.js, and modern web technologies. Creating beautiful, functional web experiences.",
   keywords: ["web developer", "full stack", "react", "next.js", "typescript", "portfolio"],
@@ -40,7 +41,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
-        <main className="pt-10">{children}</main>
+        <main >{children}</main>
         <Footer />
         <ScrollToTop />
       </body>

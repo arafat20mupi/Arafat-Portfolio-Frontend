@@ -51,7 +51,7 @@ export default function Navigation() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <Button asChild variant="outline" size="sm">
-              <Link href="/resume.pdf">
+              <Link href="https://drive.google.com/file/d/1P9FzaK3geXD9z68JvK6me4dwrpQk8qUh/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" />
                 Resume
               </Link>
@@ -88,7 +88,7 @@ export default function Navigation() {
               ))}
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button asChild variant="outline" size="sm">
-                  <Link href="/resume.pdf">
+                  <Link href="https://drive.google.com/file/d/1P9FzaK3geXD9z68JvK6me4dwrpQk8qUh/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                     <Download className="mr-2 h-4 w-4" />
                     Resume
                   </Link>
