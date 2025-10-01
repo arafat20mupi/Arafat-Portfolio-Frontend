@@ -102,7 +102,7 @@ const initialProject: Project = {
 }
 
 // Configure axios defaults
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://arafat-portfolio-backend.vercel.app/api"
 
 // Create axios instance
 const api = axios.create({
