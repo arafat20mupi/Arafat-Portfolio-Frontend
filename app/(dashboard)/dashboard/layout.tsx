@@ -5,6 +5,7 @@ import "../../globals.css"
 import ScrollToTop from "@/components/scroll-to-top"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { Toaster } from "react-hot-toast"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -44,6 +45,7 @@ export default function RootLayout({
                     <AppSidebar />
                     <main className="m-6 w-full">{children}</main>
                     <ScrollToTop />
+                    <Toaster />
                 </SidebarProvider>
             </body>
         </html>
