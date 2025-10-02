@@ -20,7 +20,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`https://arafat-portfolio-backend.vercel.app/api/projects/${params.id}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/projects/${params.id}`)
         setProject(response.data)
       } catch (error) {
         console.error("Failed to fetch project:", error)
@@ -30,6 +30,8 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
     fetchProject()
   }, [params.id])
 
+
+  console.log(project);
 
   if (!project) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>
@@ -126,7 +128,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           <div className="max-w-6xl mx-auto">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <Image
-                src={project.image || "/placeholder.svg"}
+                src={project.image}
                 alt={project.title}
                 width={1200}
                 height={600}
@@ -153,7 +155,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 <div className="prose prose-lg max-w-none text-gray-600 mb-12">
                   {project.longDescription.split("\n\n").map((paragraph, index) => (
                     <p key={index} className="mb-4">
-                      {paragraph}
+                      <div dangerouslySetInnerHTML={{ __html: paragraph }} />
                     </p>
                   ))}
                 </div>
@@ -267,14 +269,32 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <Card>
                     <CardContent className="p-6">
                       <h3 className="text-xl font-semibold text-gray-900 mb-4">Client Feedback</h3>
-                      <blockquote className="text-gray-600 italic mb-4">"{project.testimonial.text}"</blockquote>
-                      <div className="text-sm">
-                        <div className="font-medium text-gray-900">{project.testimonial.author}</div>
-                        <div className="text-gray-500">{project.testimonial.role}</div>
+
+                      <blockquote className="text-gray-600 italic mb-4">
+                        "{project.testimonial.quote}"
+                      </blockquote>
+
+                      <div className="flex items-center gap-4">
+                        {project.testimonial.image && (
+                          <img
+                            src={project.testimonial.image}
+                            alt={project.testimonial.name}
+                            className="w-12 h-12 rounded-full object-cover border"
+                          />
+                        )}
+                        <div className="text-sm">
+                          <div className="font-medium text-gray-900">
+                            {project.testimonial.name}
+                          </div>
+                          <div className="text-gray-500">
+                            {project.testimonial.role} • {project.testimonial.company}
+                          </div>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
                 )}
+
               </motion.div>
             </div>
           </div>

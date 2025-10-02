@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project) => (
-              <Link href={`/projects/${project._id}`} key={project._id}>
+              <Link href={`/projects/${project.id}`} key={project.id}>
                 <Card className="overflow-hidden hover:shadow-lg transition-shadow group">
                   <div className="relative overflow-hidden">
                     <Image

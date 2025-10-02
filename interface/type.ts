@@ -1,5 +1,5 @@
 export interface IProject {
-  _id: string
+  id: string
   title: string
   description: string
   longDescription: string
@@ -15,5 +15,11 @@ export interface IProject {
   year: string
   features: string[]
   challenges: { title: string; description: string }[]
-  testimonial?: { text: string; author: string; role: string }
+  testimonial?: {
+    name: string
+    role: string
+    company: string
+    quote: string
+    image: string
+  }
 }
