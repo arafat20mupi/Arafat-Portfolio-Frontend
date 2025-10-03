@@ -252,7 +252,7 @@ export default function HomePage() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.slice(0, 3).map((project, index) => (
-              <Link href={`/projects/${project._id}`} key={project._id}>
+              <Link href={`/projects/${project.id}`} key={project.id}>
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
