@@ -1,77 +1,121 @@
-import { Button } from "@/src/components/ui/button"
-import { Card, CardContent } from "@/src/components/ui/card"
-import { Badge } from "@/src/components/ui/badge"
-import { Calendar, MapPin, Award, Users, Code, Coffee } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent } from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { Calendar, MapPin, Award, Users, Code, Coffee } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function AboutPage() {
-  const experiences = [
-    {
-      title: "Lead Web Developer",
-      company: "CodeCraftor",
-      period: "2023 - 2025",
-      location: "Remote",
-      description:
-        "Led a team of developers to build scalable web applications using modern frameworks. Implemented best practices for code quality and performance optimization.",
-    },
-    {
-      title: "Chief Technology Officer",
-      company: "MobiNexa",
-      period: "2024 - 2025",
-      location: "Remote",
-      description:
-        "Oversaw the technology strategy and development for a mobile solutions company. Drove innovation and ensured alignment with business goals.",
-    }
-  ]
 
-  const achievements = [
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Team Leadership",
-      description: "Led a team of 10+ developers on multiple projects",
-    },
-    {
-      icon: <Code className="h-6 w-6" />,
-      title: "Open Source Contributor",
-      description: "Active contributor to popular open-source projects",
-    },
-    {
-      icon: <Coffee className="h-6 w-6" />,
-      title: "15+ Projects Completed",
-      description: "Successfully delivered projects for various clients",
-    },
-    {
-      icon: <Award className="h-6 w-6" />,
-      title: "Presentation & Public Speaking",
-      description: "Experienced speaker at tech conferences and meetups",
-    }
-  ]
+const personalInfo = {
+  name: "Arafat Islam",
+  location: "Dinajpur, Bangladesh",
+  experience: "2+ Years Experience",
+  bio: `I'm a passionate full-stack developer with over 2 years of experience creating digital solutions that
+  make a difference. I love turning complex problems into simple, beautiful, and intuitive designs.
+  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
+  or sharing knowledge with the developer community through blog posts and mentoring.`,
+};
+
+const experiences = [
+  {
+    title: "Lead Web Developer",
+    company: "CodeCraftor",
+    period: "2023 - Present",
+    location: "Remote",
+    description:
+      "Led a team of developers to build scalable web applications using modern frameworks. Implemented best practices for code quality and performance optimization.",
+  },
+  {
+    title: "Chief Technology Officer",
+    company: "MobiNexa",
+    period: "2024 - 2025",
+    location: "Remote",
+    description:
+      "Oversaw the technology strategy and development for a mobile solutions company. Drove innovation and ensured alignment with business goals.",
+  },
+  {
+    title: "Chief Technology Manager",
+    company: "Euro Bangla Employment Ltd",
+    period: "2025 - Present",
+    location: "Remote",
+    description:
+      "Managing the technology infrastructure and leading digital transformation initiatives to enhance operational efficiency and customer experience.",
+  }
+];
+
+const achievements = [
+  {
+    icon: <Users className="h-6 w-6" />,
+    title: "Team Leadership",
+    description: "Led a team of 10+ developers on multiple projects",
+  },
+  {
+    icon: <Code className="h-6 w-6" />,
+    title: "Open Source Contributor",
+    description: "Active contributor to popular open-source projects",
+  },
+  {
+    icon: <Coffee className="h-6 w-6" />,
+    title: "15+ Projects Completed",
+    description: "Successfully delivered projects for various clients",
+  },
+  {
+    icon: <Award className="h-6 w-6" />,
+    title: "Presentation & Public Speaking",
+    description: "Experienced speaker at tech conferences and meetups",
+  },
+];
+
+const frontendSkills = [
+  { skill: "React/Next.js", level: 95 },
+  { skill: "TypeScript", level: 90 },
+  { skill: "Tailwind CSS", level: 95 },
+];
+
+const backendSkills = [
+  { skill: "Node.js", level: 90 },
+  { skill: "Express.js", level: 90 },
+  { skill: "PostgreSQL", level: 55 },
+];
+
+// ------------------
+// SSG Function
+// ------------------
+export const fetchStaticData = async () => {
+  // In real apps, you could fetch from CMS, DB, or local JSON
+  return {
+    personalInfo,
+    experiences,
+    achievements,
+    frontendSkills,
+    backendSkills,
+  };
+};
+
+// ------------------
+// About Page
+// ------------------
+export default async function AboutPage() {
+  const { personalInfo, experiences, achievements, frontendSkills, backendSkills } =
+    await fetchStaticData();
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section */}
+      {/* Hero / About Me Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6">About Me</h1>
-              <p className="text-xl text-gray-600 mb-6">
-                I'm a passionate full-stack developer with over 2 years of experience creating digital solutions that
-                make a difference. I love turning complex problems into simple, beautiful, and intuitive designs.
-              </p>
-              <p className="text-lg text-gray-600 mb-8">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                or sharing knowledge with the developer community through blog posts and mentoring.
-              </p>
+              <p className="text-xl text-gray-600 mb-6">{personalInfo.bio}</p>
               <div className="flex flex-wrap gap-4">
                 <Badge variant="secondary" className="px-3 py-1">
                   <MapPin className="h-4 w-4 mr-1" />
-                  Dinajpur, Bangladesh
+                  {personalInfo.location}
                 </Badge>
                 <Badge variant="secondary" className="px-3 py-1">
                   <Calendar className="h-4 w-4 mr-1" />
-                  2+ Years Experience
+                  {personalInfo.experience}
                 </Badge>
               </div>
             </div>
@@ -88,7 +132,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Work Experience Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -146,7 +190,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Skills Detail Section */}
+      {/* Skills Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -155,11 +199,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Frontend</h3>
                 <div className="space-y-4">
-                  {[
-                    { skill: "React/Next.js", level: 95 },
-                    { skill: "TypeScript", level: 90 },
-                    { skill: "Tailwind CSS", level: 95 },
-                  ].map((item, index) => (
+                  {frontendSkills.map((item, index) => (
                     <div key={index}>
                       <div className="flex justify-between mb-2">
                         <span className="text-gray-700 font-medium">{item.skill}</span>
@@ -178,11 +218,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Backend</h3>
                 <div className="space-y-4">
-                  {[
-                    { skill: "Node.js", level: 90 },
-                    { skill: "Express.js", level: 90 },
-                    { skill: "PostgreSQL", level: 55 },
-                  ].map((item, index) => (
+                  {backendSkills.map((item, index) => (
                     <div key={index}>
                       <div className="flex justify-between mb-2">
                         <span className="text-gray-700 font-medium">{item.skill}</span>
@@ -216,5 +252,5 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

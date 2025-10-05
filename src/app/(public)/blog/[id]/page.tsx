@@ -1,5 +1,5 @@
+import SengleBlogsPages from "@/src/components/modules/blogs/SengleBlogsPages"
 import { notFound } from "next/navigation"
-import SengleBlogsPages from "@/src/componentsmodules/blogs/SengleBlogsPages"
 
 // ISR জন্য সব params generate করবে
 export async function generateStaticParams() {

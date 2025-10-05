@@ -7,7 +7,7 @@ import { Calendar, Clock, ArrowLeft, } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { BlogPost } from "@/types"
+import { BlogPost } from "@/src/types"
 const SengleBlogsPages = ({ post }: { post: BlogPost }) => {
     const containerVariants = {
         hidden: { opacity: 0 },

@@ -1,9 +1,7 @@
 import Link from "next/link"
-import CreateBlog from "@/src/componentsmodules/blogs/CreateBlog"
 import { Button } from "@/src/components/ui/button"
 import { ArrowLeft } from "lucide-react"
-
-
+import CreateBlog from "@/src/components/modules/blogs/CreateBlog"
 
 export default function AddBlogPage() {
 

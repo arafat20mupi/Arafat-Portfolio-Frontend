@@ -54,7 +54,7 @@ export default function CreateBlog() {
       if (data.metaTitle) formData.append("metaTitle", data.metaTitle)
       if (data.metaDescription) formData.append("metaDescription", data.metaDescription)
       if (data.keywords) formData.append("keywords", data.keywords)
-      formData.append("authorId", "1") // adjust author id as needed
+      formData.append("authorId", "1")
 
       const res = await fetch("/api/blogs", { method: "POST", body: formData })
       if (res.ok) {

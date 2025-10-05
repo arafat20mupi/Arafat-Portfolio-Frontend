@@ -27,7 +27,7 @@ export default function SkillsPage() {
         { name: "Node.js", level: 90, experience: "2+ years" },
         { name: "Express.js", level: 90, experience: "2+ years" },
         { name: "RESTful APIs", level: 92, experience: "2+ years" },
-        // { name: "Microservices", level: 75, experience: "2+ years" },
+        { name: "Microservices", level: 75, experience: "2+ years" },
         { name: "Authentication & Security", level: 85, experience: "2+ years" },
         { name: "API Documentation", level: 90, experience: "2+ years" },
       ],
@@ -39,7 +39,8 @@ export default function SkillsPage() {
       skills: [
         { name: "MongoDB", level: 85, experience: "3+ years" },
         { name: "PostgreSQL", level: 88, experience: "1+ years" },
-        { name: "Redis", level: 70, experience: "1- years" },
+        { name: "MySQL", level: 80, experience: "1+ years" },
+        // { name: "Redis", level: 70, experience: "1- years" },
         { name: "Database Design", level: 85, experience: "2+ years" },
         { name: "Firebase", level: 78, experience: "2+ years" },
       ],
@@ -99,7 +100,7 @@ export default function SkillsPage() {
     },
     {
       title: "Web Design and Development",
-      issuer: "NEDL- National  ",
+      issuer: "NEDL Engineering Development Limited",
       date: "2024",
     },
     {

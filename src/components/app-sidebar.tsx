@@ -8,6 +8,7 @@ import {
     ChevronDown,
     Home,
     Brain,
+    LogOut,
 } from "lucide-react"
 import {
     Sidebar,
@@ -25,11 +26,12 @@ import {
 } from "@/src/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 
-const socialLinks = [
-    { title: "GitHub", url: "https://github.com/arafat20mupi", icon: Github },
-    { title: "LinkedIn", url: "https://www.linkedin.com/in/arafatislam03", icon: Linkedin },
-    { title: "YouTube", url: "https://www.youtube.com/@learnwitharafatislam", icon: Youtube },
-]
+
+// const socialLinks = [
+//     { title: "GitHub", url: "https://github.com/arafat20mupi", icon: Github },
+//     { title: "LinkedIn", url: "https://www.linkedin.com/in/arafatislam03", icon: Linkedin },
+//     { title: "YouTube", url: "https://www.youtube.com/@learnwitharafatislam", icon: Youtube },
+// ]
 
 const sections = [
     {
@@ -131,32 +133,22 @@ export function AppSidebar() {
             </SidebarContent>
 
             {/* Footer / Social Links */}
-            <SidebarFooter className="border-t py-4">
-                <SidebarGroup>
-                    <SidebarGroupLabel className="text-xs uppercase tracking-wide text-gray-500">
-                        Connect
-                    </SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {socialLinks.map((link) => (
-                                <SidebarMenuItem key={link.title}>
-                                    <SidebarMenuButton asChild>
-                                        <a
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 transition"
-                                        >
-                                            <link.icon className="h-4 w-4" />
-                                            <span>{link.title}</span>
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-            </SidebarFooter>
+            {/* <SidebarFooter className="border-t py-4"> */}
+                {/* Logout Btn */}
+                {/* <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                        <button
+                            onClick={() => {
+                                LogOut()
+                            }}
+                            className="flex items-center gap-2 bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md transition"
+                        >
+                            <LogOut className="h-4 w-4" />
+                            <span>Logout</span>
+                        </button>
+                    </SidebarMenuButton>
+                </SidebarMenuItem> */}
+            {/* </SidebarFooter> */}
         </Sidebar>
     )
 }

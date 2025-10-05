@@ -1,9 +1,9 @@
-import { IProject } from "@/interface/type"
 import { Card, CardContent } from "@/src/components/ui/card"
 import { Badge } from "@/src/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { IProject } from "@/src/interface/type"
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -12,7 +12,8 @@ export default async function ProjectsPage() {
   const res = await fetch(`${API_BASE_URL}/projects`, {
     next: {
       tags: ["projects"],
-    }
+    },
+    cache: "no-store"
   })
   const projects: IProject[] = await res.json()
 
