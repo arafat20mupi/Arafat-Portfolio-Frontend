@@ -10,8 +10,11 @@ import { Switch } from "@/src/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/src/components/ui/select"
 import { Save } from "lucide-react"
 import Link from "next/link"
-import ReactQuill from "react-quill"
-import "react-quill/dist/quill.snow.css"
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css"; 
+
 import toast from "react-hot-toast"
 import { useState } from "react"
 

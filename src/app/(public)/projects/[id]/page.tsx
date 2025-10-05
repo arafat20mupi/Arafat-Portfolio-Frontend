@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 import { notFound } from "next/navigation"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { IProject } from "@/interface/type"
+import { IProject } from "@/src/interface/type"
 
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {

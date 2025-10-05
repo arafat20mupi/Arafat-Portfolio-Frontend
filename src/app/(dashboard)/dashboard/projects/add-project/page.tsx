@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useForm, Controller, useFieldArray } from "react-hook-form";
 import { useState } from "react";
@@ -8,8 +8,9 @@ import { Textarea } from "@/src/components/ui/textarea";
 import { Label } from "@/src/components/ui/label";
 import { Button } from "@/src/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css"; 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -111,6 +112,15 @@ export default function AddProjectPage() {
               <Label className="font-semibold">Short Description *</Label>
               <Textarea {...register("description", { required: true })} rows={3} />
             </div>
+            {/* <div className="">
+              <Label className="font-semibold">Long Description *</Label>
+              <Controller
+                name="longDescription"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => <ReactQuill className="h-45" value={field.value || ""} onChange={field.onChange} />}
+              />
+            </div> */}
             <div className="">
               <Label className="font-semibold">Long Description *</Label>
               <Controller
@@ -120,6 +130,7 @@ export default function AddProjectPage() {
                 render={({ field }) => <ReactQuill className="h-45" value={field.value || ""} onChange={field.onChange} />}
               />
             </div>
+
             <div className="mt-12">
               <Label className="font-semibold">Category *</Label>
               <select {...register("category", { required: true })} className="w-full border p-2 rounded">

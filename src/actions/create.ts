@@ -1,8 +1,8 @@
 "use server";
 
-import { getUserSession } from "@/helpers/getUserSession";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import { getUserSession } from "../helpers/getUserSession";
 
 export const create = async (data: FormData) => {
   const session = await getUserSession();
